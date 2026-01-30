@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- English strings (default) -->
+<resources>
+    <string name="app_name">DayOff</string>
+    
+    <!-- Common -->
+    <string name="btn_continue">Continue</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_reset">Reset</string>
+    <string name="btn_today">Today</string>
+    
+    <!-- Language Selection -->
+    <string name="language_title">Select Language</string>
+    <string name="language_greek">Ελληνικά</string>
+    <string name="language_english">English</string>
+    
+    <!-- Welcome Screen -->
+    <string name="welcome_title">Welcome to DayOff! 👋</string>
+    <string name="welcome_subtitle">Know your day off and shift at a glance</string>
+    <string name="welcome_button">Let\'s Start</string>
+    <string name="setup_complete_title">All Set! 🎉</string>
+    <string name="setup_complete_subtitle">You\'re ready to track your schedule</string>
+    
+    <!-- Setup Wizard -->
+    <string name="setup_title">Schedule Setup</string>
+    <!-- Setup Steps -->
+    <string name="setup_step1_title">Working Days</string>
+    <string name="setup_step1_desc">Select the days you work</string>
+    <string name="setup_step2_title">Current Day Off</string>
+    <string name="setup_step2_desc">Which day is your day off this week?</string>
+    <string name="setup_step3_title">Rotation Type</string>
+    <string name="setup_step3_desc">Does your day off rotate weekly?</string>
+    <string name="setup_step4_title">Shift Type</string>
+    <string name="setup_step4_desc">What shift are you working this week?</string>
+    
+    <!-- Country Selection (Step 0) -->
+    <string name="setup_step_country_title">Select Country</string>
+    <string name="setup_step_country_desc">Select your country for holiday calculations</string>
+    <string name="country_greece">Greece</string>
+    <string name="country_greece_desc">Includes Greek public holidays</string>
+    <string name="country_other">Other Country</string>
+    <string name="country_other_desc">No holiday calendar</string>
+    
+    <string name="rolling_enabled">Rolling (shifts weekly)</string>
+    <string name="rolling_disabled">Fixed (same day always)</string>
+    
+    <string name="shift_morning">Morning</string>
+    <string name="shift_evening">Evening</string>
+    <string name="shift_none">None</string>
+    
+    <!-- Days of Week -->
+    <string name="day_monday">Monday</string>
+    <string name="day_tuesday">Tuesday</string>
+    <string name="day_wednesday">Wednesday</string>
+    <string name="day_thursday">Thursday</string>
+    <string name="day_friday">Friday</string>
+    <string name="day_saturday">Saturday</string>
+    <string name="day_sunday">Sunday</string>
+    
+    <string name="day_mon">Mon</string>
+    <string name="day_tue">Tue</string>
+    <string name="day_wed">Wed</string>
+    <string name="day_thu">Thu</string>
+    <string name="day_fri">Fri</string>
+    <string name="day_sat">Sat</string>
+    <string name="day_sun">Sun</string>
+    
+    <!-- Home Screen -->
+    <string name="home_title">DayOff &amp; Shifts</string>
+    <string name="home_this_week">This Week You Have Off</string>
+    <string name="home_next_repo">Upcoming Day Off</string>
+    <string name="home_selected_date">Selected Date</string>
+    <string name="home_current_shift">Current Shift</string>
+    <string name="home_today">Today!</string>
+    <string name="home_tomorrow">Tomorrow!</string>
+    <string name="home_in_days">in %d days</string>
+    <string name="legend_repo">Day Off</string>
+    <string name="legend_holiday">Holiday</string>
+    <string name="legend_half_holiday">Half-Holiday</string>
+    
+    <!-- Status Messages -->
+    <string name="status_repo">Day Off (Repo)</string>
+    <string name="status_work">Working Day</string>
+    <string name="status_fixed_off">Fixed Off Day</string>
+    
+    <!-- Statistics -->
+    <string name="stats_title">Statistics</string>
+    <string name="stats_this_month">This Month</string>
+    <string name="stats_work_days">Work Days</string>
+    <string name="stats_off_days">Off Days</string>
+    <string name="stats_repo_days">Repo Days</string>
+    <string name="stats_distribution">Weekly Distribution</string>
+    <string name="stats_repo_dates">Days Off This Month</string>
+    
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_notifications_desc">Get notified the evening before your day off</string>
+    <string name="settings_reset_schedule">Reset Schedule</string>
+    <string name="settings_reset_confirm">This will delete your schedule. Are you sure?</string>
+    <string name="settings_language_restart">Requires app restart</string>
+    <string name="settings_language_restart_confirm">The app will restart to apply the new language.</string>
+    <string name="settings_country">Country</string>
+    <string name="settings_country_desc">Affects holiday calendar display</string>
+    <string name="settings_font_size">Font Size</string>
+    <string name="settings_font_size_desc">Adjust text size for better readability</string>
+    <string name="font_size_normal">Normal</string>
+    <string name="font_size_large">Large</string>
+    <string name="font_size_extra_large">Extra Large</string>
+    <string name="settings_notification_time">Notification Time</string>
+    <string name="settings_test_notification">Test Notification</string>
+    <string name="settings_test_notification_desc">Send test notification now</string>
+    <string name="settings_notification_sounds">Notification Sounds</string>
+    <string name="settings_notification_sounds_desc">Sound when notification arrives</string>
+    <string name="settings_click_sounds">Click Sounds</string>
+    <string name="settings_click_sounds_desc">Sound on button taps</string>
+    <string name="btn_restart">Restart</string>
+    
+    <string name="theme_system">System</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    
+    <!-- Holiday -->
+    <string name="status_holiday">Public Holiday</string>
+    <string name="status_holiday_gained">You gained a day off! 🎁</string>
+    <string name="status_holiday_lost">Your day off fell on a holiday</string>
+    <string name="holiday_new_year">New Year\'s Day 🎉</string>
+    <string name="holiday_epiphany">Epiphany ✠️</string>
+    <string name="holiday_independence_day">Greek Independence Day 🇬🇷</string>
+    <string name="holiday_may_day">Labour Day 💐</string>
+    <string name="holiday_assumption">Assumption of Mary 🙏</string>
+    <string name="holiday_oxi_day">Oxi Day 🇬🇷</string>
+    <string name="holiday_christmas">Christmas Day 🎄</string>
+    <string name="holiday_christmas_second">Day after Christmas ⭐</string>
+    <string name="holiday_clean_monday">Clean Monday 🪁</string>
+    <string name="holiday_good_friday">Good Friday ✠️</string>
+    <string name="holiday_easter_sunday">Easter Sunday 🔔</string>
+    <string name="holiday_easter_monday">Easter Monday 🥚</string>
+    <string name="holiday_holy_spirit">Whit Monday 🕊️</string>
+    
+    <!-- Notifications -->
+    <string name="notification_channel_name">Day Off Reminders</string>
+    <string name="notification_channel_desc">Notifications for upcoming days off</string>
+    <string name="notification_title">Tomorrow is your day off! 🎉</string>
+    <string name="notification_body">Enjoy your free time!</string>
+    
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_stats">Statistics</string>
+    <string name="nav_settings">Settings</string>
+</resources>

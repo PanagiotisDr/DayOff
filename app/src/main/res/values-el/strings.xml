@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Greek strings -->
+<resources>
+    <string name="app_name">Ρεπό</string>
+    
+    <!-- Common -->
+    <string name="btn_continue">Συνέχεια</string>
+    <string name="btn_save">Αποθήκευση</string>
+    <string name="btn_cancel">Ακύρωση</string>
+    <string name="btn_reset">Επαναφορά</string>
+    <string name="btn_today">Σήμερα</string>
+    
+    <!-- Language Selection -->
+    <string name="language_title">Επιλογή Γλώσσας</string>
+    <string name="language_greek">Ελληνικά</string>
+    <string name="language_english">English</string>
+    
+    <!-- Welcome Screen -->
+    <string name="welcome_title">Καλώς ήρθες στο Ρεπό! 👋</string>
+    <string name="welcome_subtitle">Μάθε πότε έχεις ρεπό και βάρδια με μια ματιά</string>
+    <string name="welcome_button">Ας Ξεκινήσουμε</string>
+    <string name="setup_complete_title">Έτοιμο! 🎉</string>
+    <string name="setup_complete_subtitle">Είσαι έτοιμος να παρακολουθείς το πρόγραμμά σου</string>
+    
+    <!-- Setup Wizard -->
+    <string name="setup_title">Ρύθμιση Προγράμματος</string>
+    <string name="setup_step1_title">Ημέρες Εργασίας</string>
+    <string name="setup_step1_desc">Επιλέξτε τις ημέρες που εργάζεστε</string>
+    <string name="setup_step2_title">Τρέχον Ρεπό</string>
+    <string name="setup_step2_desc">Ποια ημέρα είναι το ρεπό σας αυτή την εβδομάδα;</string>
+    <string name="setup_step3_title">Τύπος Εναλλαγής</string>
+    <string name="setup_step3_desc">Αλλάζει το ρεπό σας κάθε εβδομάδα;</string>
+    <string name="setup_step4_title">Τύπος Βάρδιας</string>
+    <string name="setup_step4_desc">Τι βάρδια κάνετε αυτή την εβδομάδα;</string>
+    
+    <!-- Country Selection (Step 0) -->
+    <string name="setup_step_country_title">Επιλογή Χώρας</string>
+    <string name="setup_step_country_desc">Επιλέξτε τη χώρα σας για τον υπολογισμό αργιών</string>
+    <string name="country_greece">Ελλάδα</string>
+    <string name="country_greece_desc">Περιλαμβάνει τις ελληνικές αργίες</string>
+    <string name="country_other">Άλλη Χώρα</string>
+    <string name="country_other_desc">Χωρίς ημερολόγιο αργιών</string>
+    
+    <string name="rolling_enabled">Κυλιόμενο</string>
+    <string name="rolling_disabled">Σταθερό</string>
+    
+    <string name="shift_morning">Πρωινή</string>
+    <string name="shift_evening">Απογευμ.</string>
+    <string name="shift_none">Καμία</string>
+    
+    <!-- Days of Week -->
+    <string name="day_monday">Δευτέρα</string>
+    <string name="day_tuesday">Τρίτη</string>
+    <string name="day_wednesday">Τετάρτη</string>
+    <string name="day_thursday">Πέμπτη</string>
+    <string name="day_friday">Παρασκευή</string>
+    <string name="day_saturday">Σάββατο</string>
+    <string name="day_sunday">Κυριακή</string>
+    
+    <string name="day_mon">Δευ</string>
+    <string name="day_tue">Τρι</string>
+    <string name="day_wed">Τετ</string>
+    <string name="day_thu">Πεμ</string>
+    <string name="day_fri">Παρ</string>
+    <string name="day_sat">Σαβ</string>
+    <string name="day_sun">Κυρ</string>
+    
+    <!-- Home Screen -->
+    <string name="home_title">Ρεπό και Βάρδιες</string>
+    <string name="home_this_week">Αυτή την Εβδομάδα έχεις ρεπό</string>
+    <string name="home_next_repo">Προσεχές Ρεπό</string>
+    <string name="home_selected_date">Επιλεγμένη Ημέρα</string>
+    <string name="home_current_shift">Τρέχουσα Βάρδια</string>
+    <string name="home_today">Σήμερα!</string>
+    <string name="home_tomorrow">Αύριο!</string>
+    <string name="home_in_days">σε %d ημέρες</string>
+    <string name="legend_repo">Ρεπό</string>
+    <string name="legend_holiday">Αργία</string>
+    <string name="legend_half_holiday">Ημι-αργία</string>
+    
+    <!-- Status Messages -->
+    <string name="status_repo">Ρεπό</string>
+    <string name="status_work">Εργάσιμη</string>
+    <string name="status_fixed_off">Σταθερό Ρεπό</string>
+    
+    <!-- Statistics -->
+    <string name="stats_title">Στατιστικά</string>
+    <string name="stats_this_month">Αυτός ο Μήνας</string>
+    <string name="stats_work_days">Εργάσιμες</string>
+    <string name="stats_off_days">Ρεπό</string>
+    <string name="stats_repo_days">Κυλιόμενα Ρεπό</string>
+    <string name="stats_distribution">Εβδομαδιαία Κατανομή</string>
+    <string name="stats_repo_dates">Ρεπό αυτού του Μήνα</string>
+    
+    <!-- Settings -->
+    <string name="settings_title">Ρυθμίσεις</string>
+    <string name="settings_language">Γλώσσα</string>
+    <string name="settings_theme">Θέμα</string>
+    <string name="settings_notifications">Ειδοποιήσεις</string>
+    <string name="settings_notifications_desc">Ειδοποίηση το βράδυ πριν το ρεπό</string>
+    <string name="settings_reset_schedule">Επαναφορά Προγράμματος</string>
+    <string name="settings_reset_confirm">Αυτό θα διαγράψει το πρόγραμμά σας. Είστε σίγουροι;</string>
+    <string name="settings_language_restart">Απαιτεί επανεκκίνηση</string>
+    <string name="settings_language_restart_confirm">Η εφαρμογή θα επανεκκινηθεί για την εφαρμογή της νέας γλώσσας.</string>
+    <string name="settings_country">Χώρα</string>
+    <string name="settings_country_desc">Επηρεάζει την εμφάνιση αργιών στο ημερολόγιο</string>
+    <string name="settings_font_size">Μέγεθος Γραμματοσειράς</string>
+    <string name="settings_font_size_desc">Προσαρμογή μεγέθους κειμένου για καλύτερη αναγνωσιμότητα</string>
+    <string name="font_size_normal">Κανονικό</string>
+    <string name="font_size_large">Μεγάλο</string>
+    <string name="font_size_extra_large">Πολύ Μεγάλο</string>
+    <string name="settings_notification_time">Ώρα Ειδοποίησης</string>
+    <string name="settings_test_notification">Δοκιμή Ειδοποίησης</string>
+    <string name="settings_test_notification_desc">Αποστολή δοκιμαστικής ειδοποίησης τώρα</string>
+    <string name="settings_notification_sounds">Ήχοι Ειδοποιήσεων</string>
+    <string name="settings_notification_sounds_desc">Ήχος κατά την ειδοποίηση</string>
+    <string name="settings_click_sounds">Ήχοι Κλικ</string>
+    <string name="settings_click_sounds_desc">Ήχος στα πατήματα κουμπιών</string>
+    <string name="btn_restart">Επανεκκίνηση</string>
+    
+    <string name="theme_system">Σύστημα</string>
+    <string name="theme_light">Φωτεινό</string>
+    <string name="theme_dark">Σκοτεινό</string>
+    
+    <!-- Holiday -->
+    <string name="status_holiday">Αργία</string>
+    <string name="status_holiday_gained">Κερδίζεις μέρα! 🎁</string>
+    <string name="status_holiday_lost">Το ρεπό σου έπεσε σε αργία</string>
+    <string name="holiday_new_year">Πρωτοχρονιά 🎉</string>
+    <string name="holiday_epiphany">Θεοφάνεια ✠️</string>
+    <string name="holiday_independence_day">25η Μαρτίου 🇬🇷</string>
+    <string name="holiday_may_day">Πρωτομαγιά 💐</string>
+    <string name="holiday_assumption">Κοίμηση Θεοτόκου 🙏</string>
+    <string name="holiday_oxi_day">28η Οκτωβρίου 🇬🇷</string>
+    <string name="holiday_christmas">Χριστούγεννα 🎄</string>
+    <string name="holiday_christmas_second">Σύναξη Θεοτόκου ⭐</string>
+    <string name="holiday_clean_monday">Καθαρά Δευτέρα 🪁</string>
+    <string name="holiday_good_friday">Μεγάλη Παρασκευή ✠️</string>
+    <string name="holiday_easter_sunday">Κυριακή Πάσχα 🔔</string>
+    <string name="holiday_easter_monday">Δευτέρα Πάσχα 🥚</string>
+    <string name="holiday_holy_spirit">Αγίου Πνεύματος 🕊️</string>
+    
+    <!-- Notifications -->
+    <string name="notification_channel_name">Υπενθυμίσεις Ρεπό</string>
+    <string name="notification_channel_desc">Ειδοποιήσεις για επερχόμενα ρεπό</string>
+    <string name="notification_title">Αύριο έχεις ρεπό! 🎉</string>
+    <string name="notification_body">Απόλαυσε τον ελεύθερο χρόνο σου!</string>
+    
+    <!-- Navigation -->
+    <string name="nav_home">Αρχική</string>
+    <string name="nav_stats">Στατιστικά</string>
+    <string name="nav_settings">Ρυθμίσεις</string>
+</resources>

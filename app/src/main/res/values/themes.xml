@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Base Theme για την εφαρμογή -->
+<resources>
+    <style name="Theme.RepoTracker" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Compose διαχειρίζεται τα χρώματα, αυτό είναι μόνο για splash -->
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+</resources>

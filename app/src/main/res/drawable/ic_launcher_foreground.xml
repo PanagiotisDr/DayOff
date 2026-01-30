@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Adaptive Icon Foreground -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Κύκλος φόντου -->
+    <path
+        android:fillColor="#3F51B5"
+        android:pathData="M54,54m-40,0a40,40 0,1 1,80 0a40,40 0,1 1,-80 0"/>
+    
+    <!-- Γράμμα R -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M38,34h14c6,0 10,4 10,10c0,5 -3,8 -7,9l8,13h-7l-7,-12h-5v12h-6zM44,40v8h7c3,0 5,-2 5,-4s-2,-4 -5,-4z"/>
+    
+    <!-- Ημερολόγιο -->
+    <path
+        android:fillColor="#00BCD4"
+        android:pathData="M62,52h14v4h-14zM62,58h14v4h-14zM62,64h10v4h-10z"/>
+</vector>
