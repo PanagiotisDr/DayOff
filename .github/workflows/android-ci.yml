@@ -30,7 +30,33 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
 
-    # Βήμα 4: Build Debug APK
+    # Βήμα 4: Δημιουργία dummy google-services.json για CI build
+    - name: Create dummy google-services.json
+      run: |
+        cat > app/google-services.json << 'EOF'
+        {
+          "project_info": {
+            "project_number": "000000000000",
+            "project_id": "dummy-project-id",
+            "storage_bucket": "dummy-project-id.appspot.com"
+          },
+          "client": [
+            {
+              "client_info": {
+                "mobilesdk_app_id": "1:000000000000:android:0000000000000000",
+                "android_client_info": {
+                  "package_name": "com.repotracker"
+                }
+              },
+              "api_key": [{"current_key": "dummy-api-key"}],
+              "services": {"appinvite_service": {"other_platform_oauth_client": []}}
+            }
+          ],
+          "configuration_version": "1"
+        }
+        EOF
+
+    # Βήμα 5: Build Debug APK
     - name: Build Debug APK
       run: gradle assembleDebug --no-daemon
 
