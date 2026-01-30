@@ -6,6 +6,9 @@
 local.properties
 keystore.properties
 
+# Firebase config - contains API keys
+google-services.json
+
 # Build outputs
 *.apk
 *.aab

@@ -150,4 +150,15 @@
     <string name="nav_home">Αρχική</string>
     <string name="nav_stats">Στατιστικά</string>
     <string name="nav_settings">Ρυθμίσεις</string>
+    
+    <!-- Widget -->
+    <string name="widget_description">Δείχνει τις μέρες μέχρι το επόμενο ρεπό</string>
+    <string name="widget_days_until_repo">μέρες μέχρι το ρεπό</string>
+    <string name="widget_today_is_repo">Σήμερα έχεις ρεπό!</string>
+    <string name="widget_setup_required">Απαιτείται ρύθμιση</string>
+    <string name="widget_error">Σφάλμα</string>
+    <plurals name="widget_days_remaining">
+        <item quantity="one">%d ημέρα μέχρι το ρεπό</item>
+        <item quantity="other">%d ημέρες μέχρι το ρεπό</item>
+    </plurals>
 </resources>

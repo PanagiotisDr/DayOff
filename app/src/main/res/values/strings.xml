@@ -151,4 +151,15 @@
     <string name="nav_home">Home</string>
     <string name="nav_stats">Statistics</string>
     <string name="nav_settings">Settings</string>
+    
+    <!-- Widget -->
+    <string name="widget_description">Shows days until next day off</string>
+    <string name="widget_days_until_repo">days until day off</string>
+    <string name="widget_today_is_repo">Today is your day off!</string>
+    <string name="widget_setup_required">Setup required</string>
+    <string name="widget_error">Error</string>
+    <plurals name="widget_days_remaining">
+        <item quantity="one">%d day until day off</item>
+        <item quantity="other">%d days until day off</item>
+    </plurals>
 </resources>
