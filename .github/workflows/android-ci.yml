@@ -1,0 +1,53 @@
+# Αυτόματο build για κάθε push στο main branch
+# Ελέγχει αν ο κώδικας κάνει compile σωστά
+
+name: Android CI
+
+# Πότε τρέχει το workflow
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Βήμα 1: Κατέβασε τον κώδικα
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # Βήμα 2: Ρύθμισε Java 17
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    # Βήμα 3: Cache Gradle για ταχύτερα builds
+    - name: Cache Gradle packages
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    # Βήμα 4: Δώσε permissions στο gradlew
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    # Βήμα 5: Build Debug APK
+    - name: Build Debug APK
+      run: ./gradlew assembleDebug
+
+    # Βήμα 6: Upload APK ως artifact
+    - name: Upload Debug APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: debug-apk
+        path: app/build/outputs/apk/debug/*.apk
