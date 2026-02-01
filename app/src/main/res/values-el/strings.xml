@@ -27,7 +27,9 @@
     <string name="setup_step1_title">Ημέρες Εργασίας</string>
     <string name="setup_step1_desc">Επιλέξτε τις ημέρες που εργάζεστε</string>
     <string name="setup_step2_title">Τρέχον Ρεπό</string>
-    <string name="setup_step2_desc">Ποια ημέρα είναι το ρεπό σας αυτή την εβδομάδα;</string>
+    <string name="setup_step2_desc">Επιλέξτε το επόμενο ρεπό σας</string>
+    <string name="setup_step2_hint">Πατήστε για επιλογή ημερομηνίας</string>
+    <string name="setup_step2_quick">Ή επιλέξτε γρήγορα:</string>
     <string name="setup_step3_title">Τύπος Εναλλαγής</string>
     <string name="setup_step3_desc">Αλλάζει το ρεπό σας κάθε εβδομάδα;</string>
     <string name="setup_step4_title">Τύπος Βάρδιας</string>

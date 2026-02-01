@@ -22,6 +22,8 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.Button
+import androidx.compose.material3.DatePicker
+import androidx.compose.material3.DatePickerDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
@@ -36,6 +38,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.Switch
+import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -51,6 +54,7 @@ import com.repotracker.R
 import com.repotracker.domain.model.ShiftType
 import com.repotracker.presentation.components.ConfettiEffect
 import kotlinx.coroutines.delay
+import java.time.LocalDate
 
 /**
  * Οθόνη ρύθμισης προγράμματος (4-step wizard).
@@ -163,11 +167,11 @@ fun SetupScreen(
                         }
                     )
                     2 -> StepRepoDay(
-                        dayNames = dayNames.filter { it.first in viewModel.selectedWorkDays },
-                        selectedDay = viewModel.selectedRepoDay,
-                        onSelect = { 
+                        workDays = viewModel.selectedWorkDays.toList(),
+                        selectedDate = viewModel.selectedRepoDate,
+                        onDateSelected = { 
                             viewModel.playClickSound()
-                            viewModel.selectRepoDay(it) 
+                            viewModel.selectRepoDate(it) 
                         }
                     )
                     3 -> StepRollingType(
@@ -426,13 +430,23 @@ private fun StepWorkDays(
     }
 }
 
-@OptIn(ExperimentalLayoutApi::class)
+/**
+ * Step 2: Επιλογή ημερομηνίας ρεπό με Date Picker.
+ * Εμφανίζει τις επόμενες εργάσιμες ημέρες για επιλογή.
+ */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun StepRepoDay(
-    dayNames: List<Pair<Int, String>>,
-    selectedDay: Int,
-    onSelect: (Int) -> Unit
+    workDays: List<Int>,
+    selectedDate: LocalDate?,
+    onDateSelected: (LocalDate) -> Unit
 ) {
+    // State για το DatePickerDialog
+    var showDatePicker by remember { mutableStateOf(false) }
+    
+    // Υπολογισμός επιτρεπόμενων ημερομηνιών (επόμενες 14 ημέρες που είναι εργάσιμες)
+    val today = LocalDate.now()
+    
     Column {
         Text(
             text = stringResource(R.string.setup_step2_title),
@@ -447,17 +461,146 @@ private fun StepRepoDay(
         )
         Spacer(modifier = Modifier.height(24.dp))
         
+        // Κάρτα επιλογής ημερομηνίας
+        Surface(
+            onClick = { showDatePicker = true },
+            shape = MaterialTheme.shapes.medium,
+            tonalElevation = if (selectedDate != null) 8.dp else 0.dp,
+            color = if (selectedDate != null) 
+                MaterialTheme.colorScheme.primaryContainer 
+            else 
+                MaterialTheme.colorScheme.surfaceVariant,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Row(
+                modifier = Modifier.padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text("📅", style = MaterialTheme.typography.headlineMedium)
+                Spacer(modifier = Modifier.width(16.dp))
+                Column(modifier = Modifier.weight(1f)) {
+                    if (selectedDate != null) {
+                        // Εμφάνιση επιλεγμένης ημερομηνίας
+                        val dayName = when (selectedDate.dayOfWeek.value) {
+                            1 -> stringResource(R.string.day_monday)
+                            2 -> stringResource(R.string.day_tuesday)
+                            3 -> stringResource(R.string.day_wednesday)
+                            4 -> stringResource(R.string.day_thursday)
+                            5 -> stringResource(R.string.day_friday)
+                            6 -> stringResource(R.string.day_saturday)
+                            else -> stringResource(R.string.day_sunday)
+                        }
+                        Text(
+                            text = dayName,
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Text(
+                            text = "${selectedDate.dayOfMonth}/${selectedDate.monthValue}/${selectedDate.year}",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    } else {
+                        Text(
+                            text = stringResource(R.string.setup_step2_hint),
+                            style = MaterialTheme.typography.titleMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+                Icon(
+                    Icons.AutoMirrored.Filled.ArrowForward,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        }
+        
+        // Εμφάνιση επόμενων εργάσιμων ημερών ως γρήγορες επιλογές
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(
+            text = stringResource(R.string.setup_step2_quick),
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+        
+        // Βρες τις επόμενες 5 εργάσιμες ημέρες (συμπεριλαμβανομένου του σήμερα)
+        val nextWorkDays = (0..13).mapNotNull { daysAhead ->
+            val date = today.plusDays(daysAhead.toLong())
+            if (date.dayOfWeek.value in workDays) date else null
+        }.take(5)
+        
         FlowRow(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            dayNames.forEach { (day, name) ->
+            nextWorkDays.forEach { date ->
+                val dayName = when (date.dayOfWeek.value) {
+                    1 -> stringResource(R.string.day_mon)
+                    2 -> stringResource(R.string.day_tue)
+                    3 -> stringResource(R.string.day_wed)
+                    4 -> stringResource(R.string.day_thu)
+                    5 -> stringResource(R.string.day_fri)
+                    6 -> stringResource(R.string.day_sat)
+                    else -> stringResource(R.string.day_sun)
+                }
                 FilterChip(
-                    selected = day == selectedDay,
-                    onClick = { onSelect(day) },
-                    label = { Text(name) }
+                    selected = selectedDate == date,
+                    onClick = { onDateSelected(date) },
+                    label = { Text("$dayName ${date.dayOfMonth}/${date.monthValue}") }
                 )
             }
+        }
+    }
+    
+    // DatePickerDialog
+    if (showDatePicker) {
+        // Χρήση SelectableDates για φιλτράρισμα επιτρεπόμενων ημερομηνιών
+        val selectableDates = object : androidx.compose.material3.SelectableDates {
+            override fun isSelectableDate(utcTimeMillis: Long): Boolean {
+                val date = java.time.Instant.ofEpochMilli(utcTimeMillis)
+                    .atZone(java.time.ZoneOffset.UTC)
+                    .toLocalDate()
+                // Επιτρέπουμε μόνο εργάσιμες ημέρες μετά το σήμερα
+                return date.dayOfWeek.value in workDays && !date.isBefore(today)
+            }
+        }
+        
+        val datePickerState = rememberDatePickerState(
+            initialSelectedDateMillis = selectedDate?.let { 
+                it.atStartOfDay(java.time.ZoneOffset.UTC).toInstant().toEpochMilli()
+            } ?: today.plusDays(1).atStartOfDay(java.time.ZoneOffset.UTC).toInstant().toEpochMilli(),
+            selectableDates = selectableDates
+        )
+        
+        DatePickerDialog(
+            onDismissRequest = { showDatePicker = false },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        datePickerState.selectedDateMillis?.let { millis ->
+                            val selected = java.time.Instant.ofEpochMilli(millis)
+                                .atZone(java.time.ZoneOffset.UTC)
+                                .toLocalDate()
+                            // Έλεγχος αν είναι εργάσιμη ημέρα
+                            if (selected.dayOfWeek.value in workDays && !selected.isBefore(today)) {
+                                onDateSelected(selected)
+                            }
+                        }
+                        showDatePicker = false
+                    }
+                ) {
+                    Text(stringResource(R.string.btn_save))
+                }
+            },
+            dismissButton = {
+                OutlinedButton(onClick = { showDatePicker = false }) {
+                    Text(stringResource(R.string.btn_cancel))
+                }
+            }
+        ) {
+            DatePicker(state = datePickerState)
         }
     }
 }

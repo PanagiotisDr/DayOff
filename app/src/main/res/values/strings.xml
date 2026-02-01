@@ -28,7 +28,9 @@
     <string name="setup_step1_title">Working Days</string>
     <string name="setup_step1_desc">Select the days you work</string>
     <string name="setup_step2_title">Current Day Off</string>
-    <string name="setup_step2_desc">Which day is your day off this week?</string>
+    <string name="setup_step2_desc">Select your next day off</string>
+    <string name="setup_step2_hint">Tap to select date</string>
+    <string name="setup_step2_quick">Or select quickly:</string>
     <string name="setup_step3_title">Rotation Type</string>
     <string name="setup_step3_desc">Does your day off rotate weekly?</string>
     <string name="setup_step4_title">Shift Type</string>

@@ -42,8 +42,8 @@ class SetupViewModel @Inject constructor(
     /** Επιλεγμένες εργάσιμες ημέρες (1-7) */
     val selectedWorkDays = mutableStateListOf<Int>()
     
-    /** Επιλεγμένη ημέρα ρεπό */
-    var selectedRepoDay by mutableIntStateOf(1)
+    /** Επιλεγμένη ημερομηνία ρεπό (null = δεν έχει επιλεγεί ακόμα) */
+    var selectedRepoDate by mutableStateOf<LocalDate?>(null)
         private set
     
     /** Αν είναι κυλιόμενο ρεπό */
@@ -112,9 +112,9 @@ class SetupViewModel @Inject constructor(
         }
     }
     
-    /** Επιλογή ημέρας ρεπό */
-    fun selectRepoDay(day: Int) {
-        selectedRepoDay = day
+    /** Επιλογή ημερομηνίας ρεπό */
+    fun selectRepoDate(date: LocalDate) {
+        selectedRepoDate = date
     }
     
     /** Toggle rolling/fixed */
@@ -142,7 +142,7 @@ class SetupViewModel @Inject constructor(
         return when (currentStep) {
             0 -> true // Επιλογή χώρας - πάντα έγκυρο (προεπιλογή GR)
             1 -> selectedWorkDays.isNotEmpty()
-            2 -> selectedRepoDay in selectedWorkDays
+            2 -> selectedRepoDate != null && selectedRepoDate!!.dayOfWeek.value in selectedWorkDays
             else -> true
         }
     }
@@ -153,15 +153,17 @@ class SetupViewModel @Inject constructor(
      */
     fun saveAndComplete(onComplete: () -> Unit) {
         viewModelScope.launch {
-            // Εύρεση της Δευτέρας της τρέχουσας εβδομάδας ως reference
-            val today = LocalDate.now()
-            val referenceDate = today.minusDays(
-                (today.dayOfWeek.value - DayOfWeek.MONDAY.value).toLong()
+            // Χρήση της επιλεγμένης ημερομηνίας ως reference date
+            // Υπολογίζουμε τη Δευτέρα της εβδομάδας της επιλεγμένης ημερομηνίας
+            val repoDate = selectedRepoDate ?: LocalDate.now()
+            val referenceDate = repoDate.minusDays(
+                (repoDate.dayOfWeek.value - DayOfWeek.MONDAY.value).toLong()
             )
+            val repoDay = repoDate.dayOfWeek.value
             
             val schedule = WorkSchedule(
                 workDays = selectedWorkDays.sorted(),
-                currentRepoDay = selectedRepoDay,
+                currentRepoDay = repoDay,
                 referenceDate = referenceDate,
                 isRolling = isRolling,
                 shiftType = shiftType
